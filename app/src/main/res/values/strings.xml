@@ -3,4 +3,5 @@
     <string name="heading">Heading</string>
     <string name="description">Description</string>
     <string name="marvel_heroes">Marvel Heroes:</string>
+    <string name="todo">TODO</string>
 </resources>
