@@ -1,6 +1,7 @@
 package com.example.marcosmith.recyclewheeldemo;
 
 import android.app.ProgressDialog;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private static final String URL_DATA = "https://simplifiedcoding.net/demos/marvel/";
+    private MediaPlayer mPlayer;
 
     public List<ListItems> listItemsarray;
 
@@ -42,7 +44,36 @@ public class MainActivity extends AppCompatActivity {
 
         loadRecyclerViewData();
 
+        final  int MAX_VOLUME = 100;
+        final float volume = (float) (1 - (Math.log(MAX_VOLUME - 50) / Math.log(MAX_VOLUME)));
+        mPlayer = MediaPlayer.create(this, R.raw.bgmusic);
+        mPlayer.setVolume(volume, volume);
+        mPlayer.start();
+        mPlayer.setLooping(true);
+
         }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();{
+            mPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();{
+            mPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();{
+            mPlayer.release();
+        }
+    }
 
         private void loadRecyclerViewData () {
             final ProgressDialog progressDialog = new ProgressDialog(this);
