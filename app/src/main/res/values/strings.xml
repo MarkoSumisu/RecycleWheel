@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">RecycleWheelDemo</string>
     <string name="heading">Heading</string>
+    <string name="featuredheading">More Info:</string>
+    <string name="comicRecommend">Comic Recommendations</string>
+    <string name="triviabutton">Hero Trivia</string>
     <string name="description">Description</string>
     <string name="marvel_heroes">Marvel Heroes:</string>
     <string name="todo">TODO</string>
